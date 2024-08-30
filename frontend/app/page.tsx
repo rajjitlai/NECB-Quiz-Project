@@ -14,7 +14,7 @@ export default function Home() {
         <h1 className={title()}>Quizzies&nbsp;</h1>
         <h1 className={title({ color: "violet" })}>Quiz App&nbsp;</h1>
         <h2 className={subtitle({ class: "mt-4" })}>
-          Beautiful, fast and modern React UI library.
+          The most advanced quiz app on the Internet.
         </h2>
       </div>
 
@@ -26,27 +26,21 @@ export default function Home() {
             radius: "full",
             variant: "shadow",
           })}
-          href={siteConfig.links.docs}
+          href="/login"
         >
-          Documentation
+          Get Started
         </Link>
         <Link
           isExternal
           className={buttonStyles({ variant: "bordered", radius: "full" })}
-          href={siteConfig.links.github}
+          href="/categories"
         >
-          <GithubIcon size={20} />
-          GitHub
+          Browse Categories
         </Link>
       </div>
 
       <div className="mt-8">
-        <Snippet hideCopyButton hideSymbol variant="bordered">
-          <span>
-            Get started by editing <Code color="primary">app/page.tsx</Code>
-          </span>
-        </Snippet>
-      </div>
+        </div>
     </section>
   );
 }

@@ -5,17 +5,11 @@ import React from "react";
 import Link from "next/link";
 import { Button, Input } from "@nextui-org/react";
 
-import { title } from "@/components/primitives";
-
 
 export default function RegisterPage() {
     return (
         <div>
-            <h2 className="text-4xl">Welcome to <br /> Quizzies Quiz <br />
-                <span className={title({ color: "violet" })}>
-                    Register now!!
-                </span>
-            </h2>
+            <h1 className="text-4xl">Register now!!</h1>
             <form action="" className="mt-5">
                 <div className="flex w-full flex-wrap md:flex-nowrap gap-4 flex-col text-left">
                     <div className="flex flex-col lg:flex-row gap-4">
