@@ -1,10 +1,10 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import { Button, Input } from "@nextui-org/react";
 
 import { title } from "@/components/primitives";
-import Link from "next/link";
 
 export default function LoginPage() {
   return (
