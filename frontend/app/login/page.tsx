@@ -16,6 +16,12 @@ export default function LoginPage() {
           <Input label="Email" type="email" />
           {/* <label htmlFor="password">Password</label> */}
           <Input label="Password" type="password" />
+          <span>
+            Forgot password?&nbsp;
+            <Link className="underline" href="/reset-password">
+              Reset
+            </Link>
+          </span>
           <Button color="primary">Login</Button>
           <div className="text-center">
             <p>
