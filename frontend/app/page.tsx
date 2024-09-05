@@ -3,7 +3,7 @@
 import { Link } from "@nextui-org/link";
 import { button as buttonStyles } from "@nextui-org/theme";
 
-import { categories, leaderboardData } from "./constants";
+import { categories } from "./constants";
 
 import { title, subtitle } from "@/components/primitives";
 import LeaderboardTable from "@/components/LeaderboardTable";
@@ -22,7 +22,6 @@ export default function Home() {
 
         <div className="flex gap-3">
           <Link
-            isExternal
             className={buttonStyles({
               color: "primary",
               radius: "full",
@@ -33,7 +32,6 @@ export default function Home() {
             Get Started
           </Link>
           <Link
-            isExternal
             className={buttonStyles({ variant: "bordered", radius: "full" })}
             href="/category"
           >
