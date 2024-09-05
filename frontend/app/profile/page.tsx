@@ -1,5 +1,3 @@
-/* eslint-disable prettier/prettier */
-/* eslint-disable react/jsx-sort-props */
 "use client"
 
 import ProfileStats from "@/components/ProfileStats";

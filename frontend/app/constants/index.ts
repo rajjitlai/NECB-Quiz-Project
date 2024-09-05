@@ -1,6 +1,5 @@
 import { link } from "fs";
 
-/* eslint-disable prettier/prettier */
 export const profileStats = [
     {
         label: "Rank",

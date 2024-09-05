@@ -1,6 +1,3 @@
-/* eslint-disable prettier/prettier */
-
-// src/components/ProfileStats.js
 import { profileStats } from "@/app/constants";
 
 const ProfileStats = () => {
