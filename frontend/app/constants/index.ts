@@ -1,4 +1,3 @@
-import { link } from "fs";
 
 export const profileStats = [
     {
@@ -31,22 +30,22 @@ export const categories = [
     {
         label: "English",
         value: "English",
-        link: "/english"
+        link: "/category/english"
     },
     {
         label: "Physics",
         value: "Physics",
-        link: "/physics",
+        link: "/category/physics",
     },
     {
         label: "Chemistry",
         value: "Chemistry",
-        link: "/chemistry",
+        link: "/category/chemistry",
     },
     {
         label: "Biology",
         value: "Biology",
-        link: "/biology",
+        link: "/category/biology",
     },
 ]
 

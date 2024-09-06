@@ -3,10 +3,9 @@
 import { Link } from "@nextui-org/link";
 import { button as buttonStyles } from "@nextui-org/theme";
 
-import { categories } from "./constants";
-
 import { title, subtitle } from "@/components/primitives";
 import LeaderboardTable from "@/components/LeaderboardTable";
+import CategoryCard from "@/components/CategoryCard";
 
 export default function Home() {
   return (
@@ -40,7 +39,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="mt-40 flex flex-col md:flex-row items-center justify-between w-full gap-10">
+      <div className="mt-40 flex flex-col md:flex-row items-start justify-between w-full gap-10">
         <div className="w-full md:w-1/2 bg-slate-900 py-5 px-8 rounded-lg">
           <h2 className="text-4xl font-bold">Global Leaderboard</h2>
           <p className="text-gray-500">
@@ -57,7 +56,31 @@ export default function Home() {
             Explore various quiz categories to test your knowledge and earn
             points!
           </p>
+
+          <div className="mt-5">
+            <CategoryCard />
+          </div>
         </div>
+      </div>
+
+      <div className="mt-40 flex flex-col bg-slate-900 py-5 px-8 rounded-lg">
+        <h2 className="text-4xl font-bold">How to play the Quiz</h2> 
+        <p className="mt-5">
+          To play the quiz, select a category, then choose the correct answer from the
+          given options. 
+          <br />
+          You&apos;ll earn points for each correct answer, and lose points for
+          each incorrect answer.
+          <br />
+          <span className="text-green-500">
+            Good luck!
+          </span>
+          <br />
+
+          <span className="text-red-500">
+            Remember, you can only play one quiz at a time.
+          </span>
+        </p>
       </div>
     </section>
   );
