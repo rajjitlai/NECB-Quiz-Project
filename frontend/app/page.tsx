@@ -6,8 +6,14 @@ import { button as buttonStyles } from "@nextui-org/theme";
 import { title, subtitle } from "@/components/primitives";
 import LeaderboardTable from "@/components/LeaderboardTable";
 import CategoryCard from "@/components/CategoryCard";
+import { useQueryCategory } from "./hook/useQueryCategory";
 
 export default function Home() {
+
+  const {data, isLoading} = useQueryCategory()
+
+  // console.log(data, isLoading)
+
   return (
     <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
       <div className="mt-20 flex flex-col items-center justify-center gap-5">
