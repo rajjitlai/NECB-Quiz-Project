@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Geist Sans", sans-serif;
+  --font-mono: "Geist Mono", monospace;
+  
+  --color-primary: oklch(0.65 0.25 260);
+  --color-secondary: oklch(0.7 0.2 300);
+  --color-accent: oklch(0.8 0.15 190);
+  --color-success: oklch(0.75 0.15 140);
+  --color-destructive: oklch(0.6 0.2 25);
+  
+  --color-background: oklch(0.1 0.02 240);
+  --color-foreground: oklch(0.95 0.01 240);
+  
+  --color-card: oklch(0.12 0.02 240 / 0.7);
+  --color-card-border: oklch(0.25 0.02 240 / 0.5);
+  
+  --radius-xl: 1.5rem;
+  --radius-2xl: 2rem;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+@layer utilities {
+  .glass {
+    background: color-mix(in oklch, var(--color-card), transparent 30%);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--color-card-border);
+  }
+  
+  .glass-hover {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .glass-hover:hover {
+    background: color-mix(in oklch, var(--color-card), transparent 10%);
+    border-color: oklch(0.4 0.05 240 / 0.6);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px -10px oklch(0 0 0 / 0.5);
+  }
+
+  .gradient-text {
+    background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
