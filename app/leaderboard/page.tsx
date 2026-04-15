@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Trophy, Medal, Crown, ArrowUpRight, Search } from "lucide-react";
+import { Medal, Crown, Search, ArrowUpRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const LEADERBOARD_DATA = [
@@ -16,7 +16,6 @@ const LEADERBOARD_DATA = [
 
 export default function LeaderboardPage() {
   const topThree = LEADERBOARD_DATA.slice(0, 3);
-  const others = LEADERBOARD_DATA.slice(3);
 
   return (
     <div className="container mx-auto px-6 max-w-5xl">

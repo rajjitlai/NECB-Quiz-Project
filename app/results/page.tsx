@@ -20,7 +20,6 @@ import {
   ResponsiveContainer 
 } from "recharts";
 import Link from "next/link";
-import { cn } from "@/lib/utils";
 import { Suspense } from "react";
 
 // Mock chart data
@@ -54,7 +53,7 @@ function ResultsContent() {
             <div className="absolute top-0 left-0 w-full h-1 bg-primary" />
             <Trophy className="w-16 h-16 text-primary mx-auto mb-4" />
             <h2 className="text-2xl font-bold mb-1">Great Job!</h2>
-            <p className="text-foreground/60 mb-8">You've mastered this quiz.</p>
+            <p className="text-foreground/60 mb-8">You&apos;ve mastered this quiz.</p>
             
             <div className="relative inline-flex items-center justify-center mb-8">
               <svg className="w-32 h-32 transform -rotate-90">

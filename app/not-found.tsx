@@ -36,7 +36,7 @@ export default function NotFound() {
         transition={{ delay: 0.3 }}
         className="text-foreground/60 max-w-md mb-8"
       >
-        The page you are looking for has been moved, deleted, or possibly never existed. Let's get you back on track.
+        The page you are looking for has been moved, deleted, or possibly never existed. Let&apos;s get you back on track.
       </motion.p>
       
       <motion.div 

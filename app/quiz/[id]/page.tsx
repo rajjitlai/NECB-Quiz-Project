@@ -1,12 +1,12 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useParams, useRouter } from "next/navigation";
-import { 
-  ChevronRight, 
-  Timer, 
-  CheckCircle2, 
+import { useRouter } from "next/navigation";
+import {
+  ChevronRight,
+  Timer,
+  CheckCircle2,
   XCircle,
   Trophy,
   ArrowLeft
@@ -37,7 +37,6 @@ const MOCK_QUESTIONS = [
 ];
 
 export default function QuizPage() {
-  const params = useParams();
   const router = useRouter();
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
@@ -45,14 +44,33 @@ export default function QuizPage() {
   const [isFinished, setIsFinished] = useState(false);
   const [timeLeft, setTimeLeft] = useState(30);
 
+  const handleNext = useCallback(() => {
+    setCurrentQuestion((prev) => {
+      if (prev < MOCK_QUESTIONS.length - 1) {
+        setSelectedOption(null);
+        setTimeLeft(30);
+        return prev + 1;
+      }
+      setIsFinished(true);
+      return prev;
+    });
+  }, []);
+
   useEffect(() => {
-    if (timeLeft > 0 && !isFinished) {
-      const timer = setTimeout(() => setTimeLeft(timeLeft - 1), 1000);
+    if (isFinished) return;
+
+    if (timeLeft > 0) {
+      const timer = setTimeout(() => setTimeLeft((prev) => prev - 1), 1000);
       return () => clearTimeout(timer);
-    } else if (timeLeft === 0) {
-      handleNext();
+    } else {
+      // Use setTimeout to defer the state updates to the next tick,
+      // avoiding synchronous setState calls during render phase.
+      const timer = setTimeout(() => {
+        handleNext();
+      }, 0);
+      return () => clearTimeout(timer);
     }
-  }, [timeLeft, isFinished]);
+  }, [timeLeft, isFinished, handleNext]);
 
   const handleOptionSelect = (option: string) => {
     if (selectedOption) return;
@@ -62,22 +80,12 @@ export default function QuizPage() {
     }
   };
 
-  const handleNext = () => {
-    if (currentQuestion < MOCK_QUESTIONS.length - 1) {
-      setCurrentQuestion(currentQuestion + 1);
-      setSelectedOption(null);
-      setTimeLeft(30);
-    } else {
-      setIsFinished(true);
-    }
-  };
-
   if (isFinished) {
     // Redirect to results with score (using a timeout for a smooth transition)
     setTimeout(() => router.push(`/results?score=${score}&total=${MOCK_QUESTIONS.length}`), 500);
     return (
       <div className="flex flex-col items-center justify-center min-h-[60vh]">
-        <motion.div 
+        <motion.div
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           className="text-center"
@@ -113,7 +121,7 @@ export default function QuizPage() {
 
       {/* Progress Bar */}
       <div className="h-2 w-full bg-white/5 rounded-full mb-12 overflow-hidden">
-        <motion.div 
+        <motion.div
           className="h-full bg-primary"
           initial={{ width: 0 }}
           animate={{ width: `${progress}%` }}

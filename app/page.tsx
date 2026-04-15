@@ -1,13 +1,13 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import Link from "next/link";
-import { 
-  Code2, 
-  Palette, 
-  Globe2, 
-  Database, 
-  Cpu, 
+import {
+  Code2,
+  Palette,
+  Globe2,
+  Database,
+  Cpu,
   Zap,
   ArrowRight
 } from "lucide-react";
@@ -58,16 +58,16 @@ const categories = [
   },
 ];
 
-const fadeIn = {
+const fadeIn: Variants = {
   hidden: { opacity: 0, y: 20 },
-  visible: { 
-    opacity: 1, 
+  visible: {
+    opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: "easeOut" }
+    transition: { duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }
   }
 };
 
-const stagger = {
+const stagger: Variants = {
   visible: {
     transition: {
       staggerChildren: 0.1
@@ -93,17 +93,17 @@ export default function Home() {
             </span>
             New Quizzes Added Daily
           </div>
-          
+
           <h1 className="text-6xl md:text-8xl font-black tracking-tight mb-6">
             Level Up Your <br />
             <span className="gradient-text">IQ Game.</span>
           </h1>
-          
+
           <p className="text-xl text-foreground/60 max-w-2xl mx-auto leading-relaxed">
-            The ultimate platform for tech enthusiasts. Challenge yourself, compete 
-            globally, and master the world's most in-demand skills.
+            The ultimate platform for tech enthusiasts. Challenge yourself, compete
+            globally, and master the world&apos;s most in-demand skills.
           </p>
-          
+
           <div className="flex items-center justify-center gap-4 pt-8">
             <Link href="/categories" className="h-12 px-8 rounded-xl bg-primary text-white font-bold shadow-lg shadow-primary/20 hover:shadow-primary/40 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-2 group cursor-pointer">
               Get Started Free
@@ -118,7 +118,7 @@ export default function Home() {
 
       {/* Category Grid */}
       <section className="py-20">
-        <motion.div 
+        <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
@@ -134,7 +134,7 @@ export default function Home() {
           </Link>
         </motion.div>
 
-        <motion.div 
+        <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
@@ -142,7 +142,7 @@ export default function Home() {
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
           {categories.map((category, index) => (
-            <CategoryCard 
+            <CategoryCard
               key={category.id}
               {...category}
               index={index}

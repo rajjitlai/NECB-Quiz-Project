@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import { 
-  User, 
   Settings, 
   Award, 
   Flame, 
@@ -17,10 +16,8 @@ import {
   YAxis, 
   CartesianGrid, 
   Tooltip, 
-  ResponsiveContainer,
-  Cell
+  ResponsiveContainer
 } from "recharts";
-import { cn } from "@/lib/utils";
 
 const SKILL_DATA = [
   { subject: "Frontend", score: 85, color: "oklch(0.65 0.25 260)" },
